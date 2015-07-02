@@ -77,7 +77,7 @@ class GraphiteStore(object):
         """Tries to write a string to the socket, reconnecting on any errors"""
         for attempt in range(self.attempts):
             try:
-                self.sock.sendall(metric)
+                self.sock.sendall(metric.encode('ascii'))
                 return
             except socket.error:
                 self.logger.exception("Error while flushing to graphite. Reattempting...")
