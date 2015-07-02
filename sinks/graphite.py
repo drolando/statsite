@@ -75,7 +75,7 @@ class GraphiteStore(object):
 
     def _write_metric(self, metric):
         """Tries to write a string to the socket, reconnecting on any errors"""
-        for attempt in xrange(self.attempts):
+        for attempt in range(self.attempts):
             try:
                 self.sock.sendall(metric)
                 return
